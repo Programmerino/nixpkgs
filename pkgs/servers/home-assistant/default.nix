@@ -500,6 +500,7 @@ in python.pkgs.buildPythonApplication rec {
     pythonPath = python3.pkgs.makePythonPath (componentBuildInputs ++ extraBuildInputs);
     frontend = python.pkgs.home-assistant-frontend;
     intents = python.pkgs.home-assistant-intents;
+    customLovelaceModules = lib.recurseIntoAttrs (callPackage ./custom-lovelace-modules {});
     tests = {
       nixos = nixosTests.home-assistant;
       components = callPackage ./tests.nix { };
