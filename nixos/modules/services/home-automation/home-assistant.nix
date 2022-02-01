@@ -152,6 +152,22 @@ in {
       '';
     };
 
+    customComponents = mkOption {
+      type = types.listOf types.package;
+      default = [];
+      example = literalExpression ''
+        with pkgs.home-assistant.customComponents; [
+          prometheus-query
+        ];
+      '';
+      description = lib.mdDoc ''
+        List of custom component packages to install.
+
+        Available components can be found below <package>pkgs.home-assistant.customComponents</package>.
+      '';
+      apply = lib.escapeShellArgs;
+    };
+
     customLovelaceModules = mkOption {
       type = types.listOf types.package;
       default = [];
@@ -447,10 +463,29 @@ in {
         '' else ''
           rm -f "${cfg.configDir}/www/nixos-lovelace-modules"
         '';
+        copyCustomComponents = ''
+          mkdir -p "${cfg.configDir}/custom_components"
+
+          # remove components symlinked in from below the /nix/store
+          components="$(find "${cfg.configDir}/custom_components" -maxdepth 1 -type l)"
+          for component in "$components"; do
+            if [[ "$(readlink "$component")" =~ ^${escapeShellArg builtins.storeDir} ]]; then
+              rm "$component"
+            fi
+          done
+
+          # recreate symlinks for desired components
+          declare -a components=(${cfg.customComponents})
+          for component in "''${components[@]}"; do
+            path="$(dirname $(find "$component" -name "manifest.json"))"
+            ln -fns "$path" "${cfg.configDir}/custom_components/"
+          done
+        '';
       in
         (optionalString (cfg.config != null) copyConfig) +
         (optionalString (cfg.lovelaceConfig != null) copyLovelaceConfig) +
-        copyCustomLovelaceModules
+        copyCustomLovelaceModules +
+        copyCustomComponents
       ;
       environment.PYTHONPATH = package.pythonPath;
       serviceConfig = let
