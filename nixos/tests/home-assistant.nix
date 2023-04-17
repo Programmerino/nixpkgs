@@ -119,6 +119,14 @@ in {
       inheritParentConfig = true;
       configuration.services.home-assistant.config.esphome = {};
     };
+
+    specialisation.removeCustomThings = {
+      inheritParentConfig = true;
+      configuration.services.home-assistant = {
+        customComponents = lib.mkForce [];
+        customLovelaceModules = lib.mkForce [];
+      };
+    };
   };
 
   testScript = { nodes, ... }: let
@@ -212,6 +220,13 @@ in {
         journal = get_journal_since(cursor)
         for domain in ["esphome"]:
             assert f"Setup of domain {domain} took" in journal, f"{domain} setup missing"
+
+    with subtest("Check custom components and custom lovelace modules get removed"):
+        cursor = get_journal_cursor()
+        hass.succeed("${system}/specialisation/removeCustomThings/bin/switch-to-configuration test")
+        hass.fail("grep -q 'mini-graph-card.js' '${configDir}/ui-lovelace.yaml'")
+        hass.fail("test -f ${configDir}/custom_components/prometheus_sensor/manifest.json")
+        wait_for_homeassistant(cursor)
 
     with subtest("Check that no errors were logged"):
         hass.fail("journalctl -u home-assistant -o cat | grep -q ERROR")
