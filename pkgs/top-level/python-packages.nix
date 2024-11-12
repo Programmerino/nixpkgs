@@ -49,6 +49,8 @@ self: super: with self; {
 
   acquire = callPackage ../development/python-modules/acquire { };
 
+  acres = callPackage ../development/python-modules/acres { };
+
   actdiag = callPackage ../development/python-modules/actdiag { };
 
   acunetix = callPackage ../development/python-modules/acunetix { };
@@ -4794,6 +4796,8 @@ self: super: with self; {
     inherit (pkgs) freesasa;
   };
 
+  freesurfer-stats = callPackage ../development/python-modules/freesurfer-stats { };
+
   freetype-py = callPackage ../development/python-modules/freetype-py { };
 
   freezegun = callPackage ../development/python-modules/freezegun { };
@@ -7944,6 +7948,8 @@ self: super: with self; {
 
   mido = callPackage ../development/python-modules/mido { };
 
+  migas = callPackage ../development/python-modules/migas { };
+
   migen = callPackage ../development/python-modules/migen { };
 
   mike = callPackage ../development/python-modules/mike { };
@@ -8255,6 +8261,8 @@ self: super: with self; {
   };
 
   mpyq = callPackage ../development/python-modules/mpyq { };
+
+  mriqc-learn = callPackage ../development/python-modules/mriqc-learn { };
 
   mrjob = callPackage ../development/python-modules/mrjob { };
 
@@ -8996,6 +9004,8 @@ self: super: with self; {
   nipype = callPackage ../development/python-modules/nipype {
     inherit (pkgs) which;
   };
+
+  nireports = callPackage ../development/python-modules/nireports { };
 
   nitime = callPackage ../development/python-modules/nitime { };
 

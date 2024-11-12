@@ -5562,6 +5562,8 @@ with pkgs;
 
   mq-cli = callPackage ../tools/system/mq-cli { };
 
+  mriqc = callPackage ../by-name/mr/mriqc/package.nix { };
+
   mrkd = callPackage ../tools/text/mrkd { };
 
   nautilus-open-any-terminal = callPackage ../tools/misc/nautilus-open-any-terminal { };
@@ -24166,6 +24168,8 @@ with pkgs;
   freeswitch = callPackage ../servers/sip/freeswitch {
     inherit (darwin.apple_sdk.frameworks) SystemConfiguration;
   };
+
+  freesurfer = callPackage ../by-name/fr/freesurfer/package.nix { };
 
   fusionInventory = callPackage ../servers/monitoring/fusion-inventory { };
 
