@@ -18753,6 +18753,8 @@ with pkgs;
 
   amrwb = callPackage ../development/libraries/amrwb { };
 
+  ann = callPackage ../development/libraries/ann { };
+
   ansi2html = with python3.pkgs; toPythonApplication ansi2html;
 
   antic = callPackage ../development/libraries/antic { };
