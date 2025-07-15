@@ -5096,6 +5096,8 @@ self: super: with self; {
 
   fissix = callPackage ../development/python-modules/fissix { };
 
+  fish-speech = callPackage ../development/python-modules/fish-speech { };
+
   fitbit = callPackage ../development/python-modules/fitbit { };
 
   fitdecode = callPackage ../development/python-modules/fitdecode { };
@@ -5472,6 +5474,8 @@ self: super: with self; {
   funcsigs = callPackage ../development/python-modules/funcsigs { };
 
   functions-framework = callPackage ../development/python-modules/functions-framework { };
+
+  funasr = callPackage ../development/python-modules/funasr { };
 
   functiontrace = callPackage ../development/python-modules/functiontrace { };
 
@@ -7563,6 +7567,8 @@ self: super: with self; {
 
   kaldi-active-grammar = callPackage ../development/python-modules/kaldi-active-grammar { };
 
+  kaldiio = callPackage ../development/python-modules/kaldiio { };
+
   kaleido = callPackage ../development/python-modules/kaleido { };
 
   kalshi-python = callPackage ../development/python-modules/kalshi-python { };
@@ -7719,6 +7725,8 @@ self: super: with self; {
   krfzf-py = callPackage ../development/python-modules/krfzf-py { };
 
   kserve = callPackage ../development/python-modules/kserve { };
+
+  kui = callPackage ../development/python-modules/kui { };
 
   kubernetes = callPackage ../development/python-modules/kubernetes { };
 
@@ -8585,6 +8593,8 @@ self: super: with self; {
 
   loqedapi = callPackage ../development/python-modules/loqedapi { };
 
+  loralib = callPackage ../development/python-modules/loralib { };
+
   losant-rest = callPackage ../development/python-modules/losant-rest { };
 
   lottie = callPackage ../development/python-modules/lottie { };
@@ -9326,6 +9336,8 @@ self: super: with self; {
   model-checker = callPackage ../development/python-modules/model-checker { };
 
   modelcif = callPackage ../development/python-modules/modelcif { };
+
+  modelscope = callPackage ../development/python-modules/modelscope { };
 
   modeled = callPackage ../development/python-modules/modeled { };
 
@@ -10650,6 +10662,8 @@ self: super: with self; {
   opencensus-context = callPackage ../development/python-modules/opencensus-context { };
 
   opencensus-ext-azure = callPackage ../development/python-modules/opencensus-ext-azure { };
+
+  opencc-python-reimplemented = callPackage ../development/python-modules/opencc-python-reimplemented { };
 
   opencontainers = callPackage ../development/python-modules/opencontainers { };
 
@@ -13628,6 +13642,8 @@ self: super: with self; {
 
   pyroma = callPackage ../development/python-modules/pyroma { };
 
+  pyrootutils = callPackage ../development/python-modules/pyrootutils { };
+
   pyroute2 = callPackage ../development/python-modules/pyroute2 { };
 
   pyrr = callPackage ../development/python-modules/pyrr { };
@@ -14813,6 +14829,8 @@ self: super: with self; {
   pytorch-msssim = callPackage ../development/python-modules/pytorch-msssim { };
 
   pytorch-pfn-extras = callPackage ../development/python-modules/pytorch-pfn-extras { };
+
+  pytorch-wpe = callPackage ../development/python-modules/pytorch-wpe { };
 
   pytorch3d = callPackage ../development/python-modules/pytorch3d { };
 
@@ -17911,6 +17929,8 @@ self: super: with self; {
 
   torch-bin = callPackage ../development/python-modules/torch/bin { triton = self.triton-bin; };
 
+  torch-complex = callPackage ../development/python-modules/torch-complex { };
+
   torch-geometric = callPackage ../development/python-modules/torch-geometric { };
 
   # Required to test triton
@@ -19065,6 +19085,8 @@ self: super: with self; {
   vdirsyncer = callPackage ../development/python-modules/vdirsyncer { };
 
   vector = callPackage ../development/python-modules/vector { };
+
+  vector-quantize-pytorch = callPackage ../development/python-modules/vector-quantize-pytorch { };
 
   vega = callPackage ../development/python-modules/vega { };
 
